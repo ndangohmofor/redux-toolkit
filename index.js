@@ -6,3 +6,4 @@ function orderCake(qty = 1) {
     quantity: qty,
   };
 }
+// (previousState, action) => newState
