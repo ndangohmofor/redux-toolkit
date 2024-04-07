@@ -37,3 +37,8 @@ store.dispatch(orderCake());
 store.dispatch(orderCake());
 store.dispatch(orderCake());
 unsubscribe();
+store.dispatch(orderCake());
+const unsubscribe1 = store.subscribe(() =>
+  console.log("Updated state", store.getState())
+);
+store.dispatch(orderCake());
