@@ -42,3 +42,4 @@ const unsubscribe1 = store.subscribe(() =>
   console.log("Updated state", store.getState())
 );
 store.dispatch(orderCake());
+unsubscribe1();
