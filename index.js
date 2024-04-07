@@ -6,4 +6,7 @@ function orderCake(qty = 1) {
     quantity: qty,
   };
 }
+
+const initialState = { numOfCakes: 10 };
+
 // (previousState, action) => newState
