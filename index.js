@@ -36,7 +36,14 @@ function restockIcecream(qty = 1) {
   };
 }
 
-const initialState = { numOfCakes: 10, numOfIcecreams: 20 };
+// const initialState = { numOfCakes: 10, numOfIcecreams: 20 };
+const initialCakeState = {
+  numOfCakes: 10,
+};
+
+const initialIcecreamState = {
+  numOfIcecreams: 20,
+};
 
 // (previousState, action) => newState
 const cakeReducer = (state = initialState, action) => {
@@ -78,10 +85,16 @@ const unsubscribe = store.subscribe(() =>
 // store.dispatch(orderCake());
 // store.dispatch(restockCake(3));
 
-const actions = bindActionCreators({ orderCake, restockCake }, store.dispatch);
+const actions = bindActionCreators(
+  { orderCake, restockCake, orderIcecream, restockIcecream },
+  store.dispatch
+);
 actions.orderCake();
 actions.orderCake();
 actions.orderCake();
+actions.orderIcecream();
+actions.orderIcecream();
 actions.restockCake(3);
+actions.restockIcecream(12);
 
 unsubscribe();
