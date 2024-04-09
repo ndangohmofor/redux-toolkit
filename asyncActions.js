@@ -1,3 +1,6 @@
+const redux = require("redux");
+const createStore = redux.createStore;
+
 //Constants
 const FETCH_USERS_REQUESTED = "FETCH_USERS_REQUESTED";
 const FETCH_USERS_SUCCEEDED = "FETCH_USERS_SUCCEEDED";
@@ -58,3 +61,5 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const store = createStore(reducer);
