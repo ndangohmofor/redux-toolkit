@@ -1,9 +1,11 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
 const thunkMiddleware = require("redux-thunk").thunk;
 const axios = require("axios");
 
 const applyMiddleware = redux.applyMiddleware;
 const createStore = redux.createStore;
+const logger = reduxLogger.createLogger();
 
 //Constants
 const FETCH_USERS_REQUESTED = "FETCH_USERS_REQUESTED";
@@ -82,8 +84,7 @@ const fetchUsers = () => {
   };
 };
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-store.subscribe(() => {
-  console.log(store.getState());
-});
+const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
+const unsubscribe = store.subscribe(() => {});
 store.dispatch(fetchUsers());
+unsubscribe();
