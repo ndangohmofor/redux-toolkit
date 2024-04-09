@@ -30,3 +30,31 @@ const fetchUsersFailed = (error) => {
     payload: error,
   };
 };
+
+//reducer
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_USERS_REQUESTED:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case FETCH_USERS_SUCCEEDED:
+      return {
+        ...state,
+        loading: false,
+        users: action.payload,
+      };
+
+    case FETCH_USERS_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
